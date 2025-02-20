@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Elements Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: 'O';
+            position: absolute;
+            font-size: 400px;
+            opacity: 0.03;
+            font-weight: bold;
+            top: -100px;
+            right: -100px;
+            color: white;
+        }
+
+        .element-card {
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .element-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            top: -5px;
+            right: -5px;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo">O</div>
+                Oscillex
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#layout">Layout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#content">Content</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#forms">Forms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#components">Components</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#helpers">Helpers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#utilities">Utilities</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="logo mx-auto mb-4" style="width: 60px; height: 60px; font-size: 1.5rem;">O</div>
+            <h1 class="display-4">Oscillex Bootstrap Guide</h1>
+            <p class="lead">A comprehensive guide to Bootstrap's most useful elements and their applications</p>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <a href="#layout" class="btn btn-light">Layout</a>
+                    <a href="#content" class="btn btn-light">Content</a>
+                    <a href="#forms" class="btn btn-light">Forms</a>
+                    <a href="#components" class="btn btn-light">Components</a>
+                    <a href="#helpers" class="btn btn-light">Helpers</a>
+                    <a href="#utilities" class="btn btn-light">Utilities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <!-- Layout Components -->
+        <section id="layout" class="mb-5">
+            <h2 class="section-title">Layout Components</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Breakpoints</h5>
+                            <p class="text-muted mb-3">Used for responsive design to control how layouts adapt at different screen sizes.</p>
+                            <ul class="list-unstyled">
+                                <li><code>xs: <576px</code> - Extra small devices (phones)</li>
+                                <li><code>sm: ≥576px</code> - Small devices (landscape phones)</li>
+                                <li><code>md: ≥768px</code> - Medium devices (tablets)</li>
+                                <li><code>lg: ≥992px</code> - Large devices (desktops)</li>
+                                <li><code>xl: ≥1200px</code> - Extra large devices</li>
+                                <li><code>xxl: ≥1400px</code> - Extra extra large devices</li>
+                            </ul>
+                            <div class="mt-3">
+                                <strong>Common Uses:</strong>
+                                <ul>
+                                    <li>Responsive layouts</li>
+                                    <li>Media queries</li>
+                                    <li>Conditional styling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Containers</h5>
+                            <p class="text-muted mb-3">Basic building blocks for centered content with padding.</p>
+                            <div class="code-block mb-3">
+                                <code>.container</code> - Fixed-width container<br>
+                                <code>.container-fluid</code> - Full-width container<br>
+                                <code>.container-{breakpoint}</code> - Responsive containers
+                            </div>
+                            <strong>When to use:</strong>
+                            <ul>
+                                <li>Page layouts</li>
+                                <li>Content wrapping</li>
+                                <li>Responsive padding</li>
+                                <li>Centered content alignment</li>
+                            </ul>
+                            <div class="mt-3">
+                                <strong>Best Practices:</strong>
+                                <ul>
+                                    <li>Use .container for fixed-width layouts</li>
+                                    <li>Use .container-fluid for full-width designs</li>
+                                    <li>Nest containers only when necessary</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Grid System</h5>
+                            <p class="text-muted mb-3">Flexible 12-column layout system using flexbox.</p>
+                            <div class="code-block mb-3">
+                                <code>.row</code> - Container for columns<br>
+                                <code>.col-*</code> - Basic columns<br>
+                                <code>.col-{breakpoint}-*</code> - Responsive columns
+                            </div>
+                            <strong>Features:</strong>
+                            <ul>
+                                <li>Responsive columns</li>
+                                <li>Auto-layout columns</li>
+                                <li>Column ordering</li>
+                                <li>Nested grids</li>
+                            </ul>
+                            <div class="mt-3">
+                                <strong>Example Usage:</strong>
+                                <pre class="bg-light p-2 mt-2">
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6"&gt;...&lt;/div&gt;
+  &lt;div class="col-md-6"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Components -->
+        <section id="content" class="mb-5">
+            <h2 class="section-title">Content Components</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Typography</h5>
+                            <ul class="list-unstyled">
+                                <li>Headings (h1-h6)</li>
+                                <li>Display headings</li>
+                                <li>Lead text</li>
+                                <li>Inline text elements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Images</h5>
+                            <ul class="list-unstyled">
+                                <li>.img-fluid</li>
+                                <li>.img-thumbnail</li>
+                                <li>.figure</li>
+                                <li>Responsive images</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tables</h5>
+                            <ul class="list-unstyled">
+                                <li>.table</li>
+                                <li>.table-striped</li>
+                                <li>.table-bordered</li>
+                                <li>.table-hover</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Figures</h5>
+                            <ul class="list-unstyled">
+                                <li>.figure</li>
+                                <li>.figure-img</li>
+                                <li>.figure-caption</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Components -->
+        <section id="forms" class="mb-5">
+            <h2 class="section-title">Form Components</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Form Controls</h5>
+                            <p class="text-muted mb-3">Styled form elements for user input.</p>
+                            <div class="code-block mb-3">
+                                <code>.form-control</code> - Basic input styling<br>
+                                <code>.form-label</code> - Label styling<br>
+                                <code>.form-text</code> - Helper text<br>
+                                <code>.form-select</code> - Custom select menus
+                            </div>
+                            <strong>Available Types:</strong>
+                            <ul>
+                                <li>Text inputs</li>
+                                <li>Textareas</li>
+                                <li>Checkboxes</li>
+                                <li>Radio buttons</li>
+                                <li>Select menus</li>
+                            </ul>
+                            <div class="mt-3">
+                                <strong>Example:</strong>
+                                <div class="mt-2">
+                                    <label class="form-label">Example input</label>
+                                    <input type="text" class="form-control" placeholder="Type here...">
+                                    <div class="form-text">Helper text goes here</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Input Groups</h5>
+                            <ul class="list-unstyled">
+                                <li>.input-group</li>
+                                <li>.input-group-text</li>
+                                <li>.input-group-prepend</li>
+                                <li>.input-group-append</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Validation</h5>
+                            <ul class="list-unstyled">
+                                <li>.was-validated</li>
+                                <li>.is-valid</li>
+                                <li>.is-invalid</li>
+                                <li>Validation feedback</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Components -->
+        <section id="components" class="mb-5">
+            <h2 class="section-title">Interactive Components</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Navigation</h5>
+                            <ul class="list-unstyled">
+                                <li>.navbar</li>
+                                <li>.nav</li>
+                                <li>.breadcrumb</li>
+                                <li>.pagination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Buttons</h5>
+                            <p class="text-muted mb-3">Custom button styles for actions and links.</p>
+                            <div class="code-block mb-3">
+                                <code>.btn</code> - Base button class<br>
+                                <code>.btn-{color}</code> - Color variants<br>
+                                <code>.btn-outline-{color}</code> - Outline styles
+                            </div>
+                            <strong>Available Styles:</strong>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <button class="btn btn-primary">Primary</button>
+                                <button class="btn btn-secondary">Secondary</button>
+                                <button class="btn btn-success">Success</button>
+                            </div>
+                            <div class="mt-3">
+                                <strong>Common Uses:</strong>
+                                <ul>
+                                    <li>Form submissions</li>
+                                    <li>Action triggers</li>
+                                    <li>Navigation links</li>
+                                    <li>Toggle controls</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Alerts</h5>
+                            <p class="text-muted mb-3">Contextual feedback messages for user actions.</p>
+                            <div class="alert alert-primary" role="alert">
+                                This is a primary alert
+                            </div>
+                            <div class="code-block mb-3">
+                                <code>.alert</code> - Base alert class<br>
+                                <code>.alert-{color}</code> - Contextual variants
+                            </div>
+                            <strong>Use Cases:</strong>
+                            <ul>
+                                <li>Success messages</li>
+                                <li>Error notifications</li>
+                                <li>Warning alerts</li>
+                                <li>Information notices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Modals</h5>
+                            <p class="text-muted mb-3">Dialog boxes for important content and actions.</p>
+                            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Launch demo modal
+                            </button>
+                            <div class="code-block mb-3">
+                                <code>.modal</code> - Modal container<br>
+                                <code>.modal-dialog</code> - Modal wrapper<br>
+                                <code>.modal-content</code> - Modal content
+                            </div>
+                            <strong>Best Used For:</strong>
+                            <ul>
+                                <li>Important notifications</li>
+                                <li>User confirmations</li>
+                                <li>Form dialogs</li>
+                                <li>Image galleries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Buttons & Indicators</h5>
+                            <ul class="list-unstyled">
+                                <li>.btn-group</li>
+                                <li>.dropdown</li>
+                                <li>.close</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Overlays</h5>
+                            <ul class="list-unstyled">
+                                <li>.modal</li>
+                                <li>.popover</li>
+                                <li>.tooltip</li>
+                                <li>.offcanvas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Helper Components -->
+        <section id="helpers" class="mb-5">
+            <h2 class="section-title">Helper Classes</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Clearfix & Embed</h5>
+                            <ul class="list-unstyled">
+                                <li>.clearfix</li>
+                                <li>.ratio</li>
+                                <li>.ratio-16x9</li>
+                                <li>.ratio-4x3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Color & Background</h5>
+                            <ul class="list-unstyled">
+                                <li>.text-{color}</li>
+                                <li>.bg-{color}</li>
+                                <li>.text-opacity-*</li>
+                                <li>.bg-opacity-*</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Position & Visibility</h5>
+                            <ul class="list-unstyled">
+                                <li>.position-*</li>
+                                <li>.visible</li>
+                                <li>.invisible</li>
+                                <li>.sr-only</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Classes -->
+        <section id="utilities" class="mb-5">
+            <h2 class="section-title">Utility Classes</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Spacing</h5>
+                            <ul class="list-unstyled">
+                                <li>.m-* (margin)</li>
+                                <li>.p-* (padding)</li>
+                                <li>.gap-*</li>
+                                <li>.w-*, .h-*</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Flex</h5>
+                            <ul class="list-unstyled">
+                                <li>.d-flex</li>
+                                <li>.flex-*</li>
+                                <li>.justify-content-*</li>
+                                <li>.align-items-*</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Border & Shadow</h5>
+                            <ul class="list-unstyled">
+                                <li>.border</li>
+                                <li>.rounded</li>
+                                <li>.shadow</li>
+                                <li>.opacity-*</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card element-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Text</h5>
+                            <ul class="list-unstyled">
+                                <li>.text-*</li>
+                                <li>.font-*</li>
+                                <li>.text-decoration-*</li>
+                                <li>.lh-*</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <div class="logo mx-auto footer-logo">O</div>
+            <p class="mb-0">© 2024 Oscillex. Created with Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
